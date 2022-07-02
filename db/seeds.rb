@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Airport.destroy_all
+Flight.destroy_all
 
 airports = Airport.create!([
     {
@@ -17,3 +18,10 @@ airports = Airport.create!([
     }])
 
 p "Created #{Airport.count} airports."
+
+flights = Flight.create([
+    {
+        departure_airport_id: 1
+        arrival_airport_id: 2
+        start: Time.now
+    }])
