@@ -32,20 +32,20 @@ Flight.destroy_all
 flights = Flight.create([
     {
         departure_airport_id: Airport.find_by(airport_code: "SFO").id,
-        arrival_airport_id: Airport.find_by(airport_code: "SFO").id,
+        arrival_airport_id: Airport.find_by(airport_code: "NYC").id,
         start_time: Time.now,
         duration: 300
     },
     {
         departure_airport_id: Airport.find_by(airport_code: "SFO").id,
         arrival_airport_id: Airport.find_by(airport_code: "MEL").id,
-        start_time: Time.now,
+        start_time: Time.now + 5.days,
         duration: 600
     },
     {
         departure_airport_id: Airport.find_by(airport_code: "BUE").id,
         arrival_airport_id: Airport.find_by(airport_code: "TYO").id,
-        start_time: Time.now,
+        start_time: Time.now + 10.days,
         duration: 450
     }])
 
