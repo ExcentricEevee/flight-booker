@@ -10,22 +10,23 @@
     <%= f.select :passengers, [1, 2, 3, 4] %><br />
     <%= f.label :date, "Date:" %>
     <!-- This picks only the dates where flights are happening, and not any other dates; returned as a string -->
-    <!-- %= select_tag :date, options_from_collection_for_select(Flight.get_start_times, :start_time, :flight_date_formatted) %><br /-->
+    <!--%= select_tag :date, options_from_collection_for_select(Flight.get_start_times, :start_time, :flight_date_formatted) %><br /-->
     <!-- This is a more modular approach where the user can pick the date of their own accord; returned as a date hash -->
-    <%= select_day(Date.today) %>
-    <%= select_month(Date.today) %>
-    <%= select_year(Date.today, :start_year => Date.today.year, :end_year => 8.years.from_now.year) %><br />
+    <!-- %= select_day(Date.today, discard_type: true) %>
+    <%= select_month(Date.today, discard_type: true) %>
+    <%= select_year(Date.today, :start_year => Date.today.year, :end_year => 8.years.from_now.year, discard_type: true) %><br /-->
+    <%= select_date(Date.today + 6.days, order: [:month, :day, :year], use_two_digit_numbers: true, use_month_names: true ) %>
 
     <%= f.submit "Search" %>
-<% end %>
-
-<h5>Your parameters for this search:</h5>
-<p><%= "#{params}" %></p>
+<% end %>    
 
 <h5>Flights with these params:</h5>
 <% flights = Flight.search_query(params) %>
 <ul>
     <% flights.each do |flight| %>
-        <li>Flight ID: <%= "#{flight.id}" %></li>
+        <strong>Flight ID: <%= "#{flight.id}" %></strong>
+        <li>From: <%= "#{flight.departure_airport.airport_code}" %></li>
+        <li>To: <%= "#{flight.arrival_airport.airport_code}" %>
+        <li>On: <%= "#{flight.start_time.to_date}" %>
     <% end %>
 </ul>
