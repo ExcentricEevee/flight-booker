@@ -1,0 +1,8 @@
+<ul>
+    <% flights.each do |flight| %>
+        <strong>Flight ID: <%= "#{flight.id}" %></strong>
+        <li>From: <%= "#{flight.departure_airport.airport_code}" %></li>
+        <li>To: <%= "#{flight.arrival_airport.airport_code}" %>
+        <li>On: <%= "#{flight.start_time.to_date}" %>
+    <% end %>
+</ul>
