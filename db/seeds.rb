@@ -61,6 +61,18 @@ flights = Flight.create([
         duration: 600
     },
     {
+        departure_airport_id: Airport.find_by(airport_code: "TYO").id,
+        arrival_airport_id: Airport.find_by(airport_code: "MEL").id,
+        start_time: Time.now + 5.days,
+        duration: 600
+    },
+    {
+        departure_airport_id: Airport.find_by(airport_code: "TYO").id,
+        arrival_airport_id: Airport.find_by(airport_code: "MEL").id,
+        start_time: Time.now + 5.days,
+        duration: 600
+    },
+    {
         departure_airport_id: Airport.find_by(airport_code: "BUE").id,
         arrival_airport_id: Airport.find_by(airport_code: "SFO").id,
         start_time: Time.now + 5.days,

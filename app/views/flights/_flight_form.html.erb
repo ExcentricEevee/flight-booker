@@ -1,8 +1,22 @@
-<ul>
-    <% flights.each do |flight| %>
-        <strong>Flight ID: <%= "#{flight.id}" %></strong>
-        <li>From: <%= "#{flight.departure_airport.airport_code}" %></li>
-        <li>To: <%= "#{flight.arrival_airport.airport_code}" %>
-        <li>On: <%= "#{flight.start_time.to_date}" %>
+<% if flights.count == 0 %>
+    <p>There's no flights for this path and date.</p>
+<% else %>
+    <!-- ul>
+        <% flights.each do |flight| %>
+            <li>
+                <strong>Flight ID: <%= "#{flight.id}" %></strong>
+                From: <%= "#{flight.departure_airport.airport_code}" %>
+                To: <%= "#{flight.arrival_airport.airport_code}" %>
+                On: <%= "#{flight.start_time.to_date}" %>
+            </li>
+        <% end %>
+    </ul -->
+
+    <%= form_with url: "/bookings/new", method: :get do |f| %>
+        <!-- for now just use the flight id as the name flight as well -->
+        <%= f.hidden_field :num_of_passengers, value: passengers %>
+        <%= f.collection_radio_buttons :flight_id, flights, :id, :details %><br/>
+        
+        <%= f.submit "Confirm Flight" %>
     <% end %>
-</ul>
+<% end %>

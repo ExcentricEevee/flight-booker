@@ -8,6 +8,7 @@
     <%= f.label :date, "Date:" %>
     <!-- This picks only the dates where flights are happening, and not any other dates; returned as a string -->
     <!--%= select_tag :date, options_from_collection_for_select(Flight.get_start_times, :start_time, :flight_date_formatted) %><br /-->
+    
     <!-- This is a more modular approach where the user can pick the date of their own accord; returned as a date hash -->
     <%= select_date(Date.today + 6.days, order: [:month, :day, :year], use_two_digit_numbers: true, use_month_names: true ) %>
 

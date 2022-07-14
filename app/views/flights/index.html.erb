@@ -3,8 +3,10 @@
 <p>Search for a flight:</p>
 <%= render partial: "search_form" %>
 
-<h5>Flights with these params:</h5>
 <% if params.has_key?(:date) %>
+    <h5>Flights with these params:</h5>
     <% flights = Flight.search_query(params) %>
-    <%= render partial: "flight_form", locals: { flights: flights } %>
+    <%= render partial: "flight_form", locals: { flights: flights, passengers: params[:passengers] } %>
+<% else %>
+    <p>Search for some flights! We'll put the results here.</p>
 <% end %>
