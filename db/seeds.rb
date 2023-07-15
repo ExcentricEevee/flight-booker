@@ -18,6 +18,65 @@ airports = Airport.create([
     { code: "GRU" }
 ])
 
-flights = Flight.create([
+bdl = Airport.find_by code: "BDL"
+bcn = Airport.find_by code: "BCN"
+bne = Airport.find_by code: "BNE"
+fra = Airport.find_by code: "FRA"
+mex = Airport.find_by code: "MEX"
+gru = Airport.find_by code: "GRU"
 
+flights = Flight.create([{
+    departure_airport_id: bdl.id,
+    arrival_airport_id: bcn.id,
+    start_time: Time.now.next_month,
+    duration: "8 hours 24 minutes"
+},
+{
+    departure_airport_id: bcn.id,
+    arrival_airport_id: fra.id,
+    start_time: Time.now.next_month(2),
+    duration: "3 hours 18 minutes"
+},
+{
+    departure_airport_id: mex.id,
+    arrival_airport_id: gru.id,
+    start_time: Time.now.next_month,
+    duration: "5 hours 4 minutes"
+},
+{
+    departure_airport_id: bcn.id,
+    arrival_airport_id: bdl.id,
+    start_time: Time.now.next_month(2),
+    duration: "8 hours 24 minutes"
+},
+{
+    departure_airport_id: fra.id,
+    arrival_airport_id: bcn.id,
+    start_time: Time.now.next_month(3),
+    duration: "3 hours 18 minutes"
+},
+{
+    departure_airport_id: bdl.id,
+    arrival_airport_id: bne.id,
+    start_time: Time.now.next_day,
+    duration: "26 hours"
+},
+{
+    departure_airport_id: bne.id,
+    arrival_airport_id: bdl.id,
+    start_time: Time.now.next_day(14),
+    duration: "26 hours"
+},
+{
+    departure_airport_id: gru.id,
+    arrival_airport_id: bcn.id,
+    start_time: Time.now.next_month,
+    duration: "16 hours 38 minutes"
+},
+{
+    departure_airport_id: mex.id,
+    arrival_airport_id: bdl.id,
+    start_time: Time.now.next_day,
+    duration: "8 hours 43 minutes"
+}
 ])
