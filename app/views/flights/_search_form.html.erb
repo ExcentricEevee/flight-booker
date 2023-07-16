@@ -1,6 +1,11 @@
-<%= form_with url: "", method: :get do |form| %>
-    <%= form.label :departing_flight %>
-    <%= form.select %>
+<%= form_with url: "/", method: :get do |form| %>
+    <%= form.label :departure_airport_id, "Departing Airport" %>
+    <%= form.select(:departure_airport_id, @airport_options) %><br />
+    <%= form.label :arrival_airport_id, "Arrival Airport" %>
+    <%= form.select :arrival_airport_id, @airport_options %><br />
+    <%= form.label :start_time, "Date" %>
+    <%= select_tag :start_time, options_for_select(@date_options) %><br />
+    <%= form.label :passengers %>
 
     <%= form.submit "Search" %>
 <% end %>
