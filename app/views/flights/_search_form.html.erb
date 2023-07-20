@@ -5,7 +5,6 @@
     <%= form.select :arrival_airport_id, @airport_options %><br />
     <%= form.label :start_time, "Date" %>
     <%= select_tag :start_time, options_for_select(@date_options) %><br />
-    <%= form.label :passengers %>
 
     <%= form.submit "Search" %>
 <% end %>
