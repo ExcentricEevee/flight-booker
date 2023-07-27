@@ -1,5 +1,7 @@
-<%= form_with url: "/bookings/new", model: @booking, method: :get do |flight_form| %>
-    <% flight_form.hidden_field :passengers, value: params[:passengers] %>
+<%= form_with url: "/bookings/new", method: :get do |flight_form| %>
+    <%= flight_form.hidden_field :passengers, value: params[:passengers] %>
     <%= flight_form.collection_radio_buttons :flight, @flights, :id,
-        :departure_airport %>
+        :departure_airport %><br />
+
+    <%= flight_form.submit %>
 <% end %>
