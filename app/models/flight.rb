@@ -4,6 +4,8 @@ class Flight < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :passengers, through: :bookings
 
+  validates :start_time, :duration, :departure_airport_id, :arrival_airport_id, presence: true
+
   def self.flight_search(params)
     Flight.where("departure_airport_id = ?", params[:departure_airport_id])
           .where("arrival_airport_id = ?", params[:arrival_airport_id])
