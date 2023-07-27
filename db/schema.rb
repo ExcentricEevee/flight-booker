@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_163042) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_165257) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,4 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_163042) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookings", "flights"
+  add_foreign_key "bookings", "passengers"
 end
