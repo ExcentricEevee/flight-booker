@@ -1,2 +1,9 @@
-Hello you have successfully reached ../bookings/new<br />
-Hey is passengers working? <%= params[:passengers] %> <- is there a number here?
+<h4>Confirm Your Booking</h4>
+
+<ul>
+    <li>Flight #<%= @flight.id %></li>
+    <li>From <%= @flight.departure_airport.code %> to <%= @flight.arrival_airport.code %>
+    <li>Date: <%= @flight.start_time_formatted %>
+</ul>
+
+<%= render "booking_form" %>

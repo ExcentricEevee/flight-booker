@@ -15,4 +15,8 @@ class Flight < ApplicationRecord
   def start_time_formatted
     start_time.strftime("%m/%d/%Y")
   end
+
+  def flight_label
+    "#{departure_airport.code} to #{arrival_airport.code}"
+  end
 end
