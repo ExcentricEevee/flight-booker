@@ -1,8 +1,12 @@
-<%= form_with model: @booking do |f| %>
-    <%= f.fields_for :passengers do |sub_form| %>
-        <%= sub_form.text_field :name %>
-        <%= sub_form.text_field :email %>
+<%= form_with model: @booking do |booking_form| %>
+    <%= booking_form.fields_for :passengers do |passenger_form| %>
+        <%= passenger_form.label :name %>
+        <%= passenger_form.text_field :name %><br />
+        <%= passenger_form.label :email %>
+        <%= passenger_form.text_field :email %><br />
     <% end %>
 
-    <%= f.submit "Book Flight" %>
+    <%= booking_form.hidden_field :flight_id, value: params[:flight] %>
+
+    <%= booking_form.submit "Book Flight" %>
 <% end %>
