@@ -11,6 +11,7 @@ class FlightsController < ApplicationController
     private
 
     def search_params
+        # is clearing :commit actually necessary?
         params.permit(:departure_airport_id, :arrival_airport_id, :start_time, :passengers, :commit)
     end
 end
