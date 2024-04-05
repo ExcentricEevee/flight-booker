@@ -11,6 +11,11 @@ class BookingsController < ApplicationController
 
         if @booking.save
             flash[:notice] = "Flight booked successfully! Enjoy your trip"
+
+            @booking.passengers.each do |passenger|
+                PassengerMailer.with(passenger: passenger).confirmation_email.deliver_later
+            end
+            
             redirect_to root_path
         else
             flash[:alert] = "Something went wrong"

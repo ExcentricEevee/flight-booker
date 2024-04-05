@@ -1,0 +1,8 @@
+Your flight is booked, <%= @passenger.name %>
+===================================================
+
+You have successfully booked a flight from <%= @flight.departure_airport.code %> to <%= @flight.arrival_airport.code %>.
+
+Your flight leaves at <%= @flight.start_time %>; we recommend arriving at <%= @flight.departure_airport.code %> at least 2 hours ahead of this time in order to accommodate for all procedures such as check-in and security clearance.
+
+Thanks for booking with us, and enjoy your flight!
