@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    </head>
+
+    <body>
+        <h1>Your flight is booked, <%= @passenger.name %></h1>
+        <p>
+            You have successfully booked a flight from <%= @flight.departure_airport.code %>
+            to <%= @flight.arrival_airport.code %>.
+        </p>
+        <p>
+            Your flight leaves at <%= @flight.start_time %>;
+            we recommend arriving at <%= @flight.departure_airport.code %>
+            at least 2 hours ahead of this time in order to accommodate for
+            all procedures such as check-in and security clearance.
+        </p>
+        <p>Thanks for booking with us, and enjoy your flight!</p>
+    </body>
+</html>
